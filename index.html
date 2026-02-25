@@ -124,7 +124,7 @@
         
         <!-- Фонове зображення -->
         <div class="absolute inset-0 z-0 overflow-hidden bg-[#F9F9F9]">
-            <img src="IMG_2534.jpg" 
+            <img src="IMG_2516.jpg" 
                  alt="Victoria Meshcheriakova" 
                  class="w-full h-full object-cover object-center opacity-95">
             
@@ -771,4 +771,43 @@
             
             const formData = {
                 target_sheet: "Контент Діагностика", 
-                date
+                date: new Date().toLocaleString("uk-UA"),
+                orderId: uniqueOrderId, 
+                name: document.getElementById('name').value,
+                phone: iti.getNumber(),
+                amount: currentPriceObj.current, 
+                variant_name: `Price Test: ${currentPriceObj.current} UAH`, 
+                status: "Pending Payment", 
+                ...getUTM()
+            };
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            }).then(() => {
+                localStorage.setItem('purchase_price', currentPriceObj.current);
+                
+                fbq('track', 'Lead', {
+                    value: parseFloat(currentPriceObj.current),
+                    currency: 'UAH',
+                    content_name: 'Персональна Діагностика Віка',
+                    content_category: currentPriceObj.current + ' грн'
+                });
+                pay({
+                    orderId: uniqueOrderId,
+                    name: formData.name,
+                    phone: formData.phone
+                });
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'ПЕРЕЙТИ ДО ОПЛАТИ';
+            }).catch(err => {
+                console.error('Error:', err);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'СПРОБУВАТИ ЩЕ РАЗ';
+            });
+        });
+    </script>
+</body>
+</html>
