@@ -112,6 +112,11 @@
             opacity: 1;
             pointer-events: auto;
         }
+        
+        /* Додаткова тінь для читабельності тексту поверх фото */
+        .text-glow {
+            text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9);
+        }
     </style>
 </head>
 <body class="antialiased text-sm md:text-base pb-24">
@@ -119,32 +124,36 @@
     <!-- HERO SECTION -->
     <section id="hero-section" class="relative min-h-[100dvh] flex flex-col justify-center pb-4 overflow-hidden bg-mono-bg">
         
-        <!-- Фонове зображення (світлий градієнт для читабельності) -->
-        <div class="absolute inset-0 z-0 overflow-hidden">
+        <!-- Фонове зображення із збереженням видимості -->
+        <div class="absolute inset-0 z-0 overflow-hidden bg-[#F9F9F9]">
             <img src="IMG_2516.jpg" 
                  alt="Victoria Meshcheriakova" 
-                 class="w-full h-full object-cover object-top opacity-30 grayscale">
+                 class="w-full h-full object-cover object-center opacity-95">
             
-            <div class="absolute inset-0 bg-gradient-to-t from-[#F9F9F9] via-[#F9F9F9]/80 to-transparent z-10"></div>
-            <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#F9F9F9] to-transparent z-10"></div>
+            <!-- Заблюрена світла тінь/пляма ВИКЛЮЧНО по центру під текстом (для читабельності) -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[160%] md:w-[80%] h-[80%] md:h-[85%] bg-[#F9F9F9]/60 blur-[45px] rounded-full z-10 pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] md:w-[60%] h-[60%] md:h-[65%] bg-[#F9F9F9]/40 backdrop-blur-md blur-[20px] rounded-full z-10 pointer-events-none"></div>
+            
+            <!-- Плавний перехід внизу в наступний блок -->
+            <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F9F9F9] to-transparent z-10 pointer-events-none"></div>
         </div>
 
         <!-- Контейнер контенту -->
-        <div class="container mx-auto px-6 relative z-20 w-full max-w-lg md:max-w-2xl flex flex-col items-center text-center mt-16 md:mt-0">
+        <div class="container mx-auto px-6 relative z-20 w-full max-w-lg md:max-w-3xl flex flex-col items-center text-center mt-16 md:mt-0">
             
             <!-- Бейдж -->
             <div class="inline-block border-b border-black pb-1 mb-8">
-                <p class="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-black">Персональний розбір</p>
+                <p class="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-black text-glow">Персональний розбір</p>
             </div>
 
-            <!-- Головний Оффер -->
-            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-black mb-6 tracking-tight">
-                ОТРИМАЙ готову <span class="italic font-normal text-mono-grey">СИСТЕМУ</span> роботи з контентом і візуалом, ЯКА ПРИВОДИТЬ <span class="italic font-normal text-mono-grey">КЛІЄНТІВ ТА БРЕНДИ</span>
+            <!-- Головний Оффер (Оновлений) -->
+            <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.2] text-black mb-6 tracking-tight relative text-glow">
+                ОТРИМАЙ готову схему роботи з контентом і візуалом <span class="italic font-normal text-gray-700">ПІД ТВОЮ НІШУ</span>, яка повністю змінить твій профіль <span class="italic font-normal text-gray-700">виглядати професійно</span> і приводити клієнтів та співпрацю
             </h1>
 
             <!-- Підзаголовок -->
-            <div class="max-w-[280px] md:max-w-md border-l-2 border-black pl-5 mb-10 mx-auto">
-                <p class="font-sans text-xs md:text-base font-medium text-gray-800 leading-relaxed text-left">
+            <div class="max-w-[280px] md:max-w-md border-l-2 border-black pl-5 mb-10 mx-auto bg-white/40 backdrop-blur-sm p-3 rounded-r-lg shadow-sm">
+                <p class="font-sans text-xs md:text-base font-bold text-gray-900 leading-relaxed text-left">
                     БЕЗ хаосу, ЩОДЕННИХ ЗЙОМОК ТА втрати часу.
                 </p>
             </div>
@@ -153,7 +162,7 @@
             <div class="w-full max-w-[320px] mx-auto flex flex-col gap-4 mb-8">
                 
                 <!-- Блок Ціни -->
-                <div class="bg-white rounded-none p-6 text-center shadow-sm relative overflow-hidden border border-gray-200">
+                <div class="bg-white/90 backdrop-blur-md rounded-none p-6 text-center shadow-sm relative overflow-hidden border border-gray-200">
                     <div id="ui-price-old" class="text-mono-grey line-through font-medium text-sm mb-1">
                         1790 грн
                     </div>
@@ -163,7 +172,7 @@
                 </div>
 
                 <!-- Блок Таймера -->
-                <div class="border border-gray-200 rounded-none py-3 px-4 text-center bg-white/50 backdrop-blur-sm">
+                <div class="border border-gray-300 rounded-none py-3 px-4 text-center bg-white/70 backdrop-blur-md">
                     <p class="text-black text-[10px] md:text-xs font-bold uppercase tracking-widest mb-0 inline-flex items-center gap-2">
                         до збільшення ціни: 
                         <span id="hero-timer" class="text-black text-lg font-serif font-bold">10:00</span>
@@ -297,7 +306,7 @@
             </h2>
             
             <p class="text-sm text-gray-500 text-center mb-16 font-medium leading-relaxed max-w-xl mx-auto">
-                Я детально аналізую твій профіль, контент і візуал, і даю тобі готову робочу систему, яку ти зможеш впровадити вже завтра.На розборі ти отримаєш:
+                Я детально аналізую твій профіль, контент і візуал, і даю тобі готову робочу систему, яку ти зможеш впровадити вже завтра. На розборі ти отримаєш:
             </p>
             
             <div class="space-y-6">
@@ -314,7 +323,7 @@
                     <div class="flex flex-col md:flex-row md:items-baseline gap-4">
                         <span class="font-serif text-3xl italic text-gray-300 group-hover:text-black transition-colors shrink-0">02.</span>
                         <div>
-                            <h3 class="font-bold text-lg mb-2 text-black">Персональна система роботи з контентом та візуалом </h3>
+                            <h3 class="font-bold text-lg mb-2 text-black">Персональна система роботи з контентом та візуалом</h3>
                             <p class="text-xs text-gray-600 font-light leading-relaxed">Ти отримаєш чіткий покроковий план: на яких темах будувати контент, як наповнити його правильними сенсами, і як віднайти власний візуальний стиль, щоб це виглядало професійно.</p>
                         </div>
                     </div>
@@ -332,7 +341,7 @@
 
             <div class="mt-12 text-center">
                  <button onclick="openModal()" class="inline-block bg-transparent border border-black text-black px-10 py-3 hover:bg-black hover:text-white transition-all duration-300 uppercase tracking-widest text-[10px] font-bold">
-                    хочу розбір
+                    Хочу розбір
                 </button>
             </div>
         </div>
