@@ -581,22 +581,36 @@
                 </button>
                 <div class="text-center mb-8">
                     <p class="text-[9px] uppercase tracking-[0.3em] text-gray-400 mb-2">Останній крок</p>
-                    <h3 class="font-serif text-3xl font-bold text-black leading-tight">Залиште дані</h3>
+                    <h3 class="font-serif text-3xl font-bold text-black leading-tight">ЗАБРОНЮВАТИ МІСЦЕ</h3>
+                    <p class="text-[12px] text-gray-500 mt-2">Введіть дані для зв'язку та отримання розбору.</p>
                 </div>
 
-                <form id="leadForm" class="space-y-5">
+                <form id="leadForm" class="space-y-4">
                     <div>
-                        <input type="text" id="name" name="name" required placeholder="Ваше ім'я"
+                        <label for="name"
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-1 text-left">Ваше
+                            ім'я</label>
+                        <input type="text" id="name" name="name" required placeholder="Олена"
                             class="w-full bg-transparent border border-gray-300 py-3 px-4 text-sm focus:border-black focus:outline-none transition-colors">
                     </div>
                     <div>
+                        <label for="social"
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-1 text-left">Ваш
+                            Telegram</label>
+                        <input type="text" id="social" name="social" required placeholder="@username"
+                            class="w-full bg-transparent border border-gray-300 py-3 px-4 text-sm focus:border-black focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label for="phone"
+                            class="block text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-1 text-left">Телефон</label>
                         <input type="tel" id="phone" name="phone" required
                             class="w-full bg-transparent border border-gray-300 py-3 px-4 text-sm focus:border-black focus:outline-none transition-colors">
-                        <p id="phone-error" class="text-red-500 text-[10px] mt-1 hidden">Перевірте правильність номеру
+                        <p id="phone-error" class="text-red-500 text-[10px] mt-1 hidden text-left">Перевірте
+                            правильність номеру
                         </p>
                     </div>
                     <button type="submit" id="submitBtn"
-                        class="w-full bg-black text-white py-4 text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-gray-800 transition-colors mt-4">
+                        class="w-full bg-black text-white py-4 text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-gray-800 transition-colors mt-6">
                         Перейти до оплати
                     </button>
                 </form>
@@ -619,6 +633,28 @@
             <img id="lightbox-image" src="" alt="Full Screen"
                 class="max-w-[95vw] max-h-[90vh] object-contain shadow-2xl rounded-sm transition-transform"
                 onclick="event.stopPropagation()">
+        </div>
+    </div>
+
+    <!-- PAYMENT STATUS MODAL -->
+    <div id="payment-status-modal"
+        class="fixed inset-0 z-[80] hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity">
+        <div class="max-w-md w-full bg-white p-8 md:p-12 text-center shadow-2xl relative">
+            <button onclick="closePaymentModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div id="payment-status-icon" class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            </div>
+            <h1 id="payment-status-title" class="font-serif text-3xl font-bold mb-4"></h1>
+            <p id="payment-status-desc" class="text-gray-600 mb-8 font-light leading-relaxed"></p>
+            <button onclick="closePaymentModal()"
+                class="w-full bg-black text-white py-4 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-gray-800 transition-colors">
+                Закрити
+            </button>
         </div>
     </div>
 
@@ -728,7 +764,45 @@
             setupInfiniteScroll('storytelling-container');
             setupInfiniteScroll('reviews-container');
             initStickyObserver();
+            checkPaymentStatus();
         };
+
+        function checkPaymentStatus() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const paymentStatus = urlParams.get('payment');
+            if (paymentStatus === 'success') {
+                showModalMessage("Оплата успішна!", "Дякуємо! Ваша оплата пройшла успішно. Найближчим часом ми надамо вам доступ до персонального розбору.", true);
+            } else if (paymentStatus === 'error') {
+                showModalMessage("Помилка оплати", "На жаль, під час оплати виникла помилка. Гроші не були списані. Будь ласка, спробуйте ще раз.", false);
+            }
+        }
+
+        function showModalMessage(title, desc, isSuccess) {
+            document.getElementById('payment-status-title').textContent = title;
+            document.getElementById('payment-status-desc').textContent = desc;
+            const iconContainer = document.getElementById('payment-status-icon');
+            if (isSuccess) {
+                iconContainer.className = "w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6";
+                iconContainer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#22c55e" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>';
+            } else {
+                iconContainer.className = "w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6";
+                iconContainer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#ef4444" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+            }
+            document.getElementById('payment-status-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+
+            // Clean URL and close previous modal if it was open
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        function closePaymentModal() {
+            document.getElementById('payment-status-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            const url = new URL(window.location);
+            url.searchParams.delete('payment');
+            url.searchParams.delete('orderReference');
+            window.history.replaceState({}, '', url);
+        }
 
         const input = document.querySelector("#phone");
         const iti = window.intlTelInput(input, {
@@ -801,8 +875,8 @@
             localStorage.setItem('wfp_amount', safeAmount);
 
             const DOMAIN = 'https://victoriameshcheriakova.vercel.app';
-            const successUrl = DOMAIN + '/success.html';
-            const failUrl = DOMAIN + '/failed.html';
+            const successUrl = DOMAIN + '/?payment=success';
+            const failUrl = DOMAIN + '/?payment=error';
 
             const orderDate = Math.floor(Date.now() / 1000);
             const productName = "Персональна Діагностика";
@@ -842,7 +916,7 @@
                 serviceUrl: GOOGLE_SCRIPT_URL
             },
                 function (response) {
-                    window.location.href = successUrl + "?orderReference=" + orderData.orderId;
+                    window.location.href = successUrl + "&orderReference=" + orderData.orderId;
                 },
                 function (response) {
                     window.location.href = failUrl;
@@ -886,6 +960,7 @@
                 date: new Date().toLocaleString("uk-UA"),
                 orderId: uniqueOrderId,
                 name: document.getElementById('name').value,
+                social: document.getElementById('social').value,
                 phone: iti.getNumber(),
                 amount: currentPriceObj.current,
                 variant_name: `Price Test: ${currentPriceObj.current} UAH`,
