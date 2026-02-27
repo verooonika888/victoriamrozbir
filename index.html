@@ -814,7 +814,7 @@
             localStorage.setItem('wfp_uid', currentUid);
             localStorage.setItem('wfp_amount', safeAmount);
 
-            const DOMAIN = 'https://victoriameshcheriakova.vercel.app';
+            const DOMAIN = window.location.origin;
             const successUrl = DOMAIN + '/success.html';
             const failUrl = DOMAIN + '/failed.html';
 
