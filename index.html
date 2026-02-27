@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Персональна Діагностика | Віка Мещерякова</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Intl-Tel-Input CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
-    
+
     <!-- Fonts from reference -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet">
+
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- WayForPay Widget Script -->
-    <script id="widget-wfp-script" language="javascript" type="text/javascript" src="https://secure.wayforpay.com/server/pay-widget.js"></script>
-    
+    <script id="widget-wfp-script" language="javascript" type="text/javascript"
+        src="https://secure.wayforpay.com/server/pay-widget.js"></script>
+
     <!-- Crypto JS (ДЛЯ ГЕНЕРАЦІЇ ПІДПИСУ) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '1648181812851913'); 
-    fbq('track', 'PageView');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '1648181812851913');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1648181812851913&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=1648181812851913&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
     <script>
@@ -61,15 +67,28 @@
     </script>
 
     <style>
-        body { background-color: #F9F9F9; color: #0F0F0F; overflow-x: hidden; }
-        
-        /* Стилі інпутів */
-        .iti { width: 100%; }
-        .iti__flag { background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/img/flags.png"); }
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-          .iti__flag { background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/img/flags@2x.png"); }
+        body {
+            background-color: #F9F9F9;
+            color: #0F0F0F;
+            overflow-x: hidden;
         }
-        
+
+        /* Стилі інпутів */
+        .iti {
+            width: 100%;
+        }
+
+        .iti__flag {
+            background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/img/flags.png");
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi) {
+            .iti__flag {
+                background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/img/flags@2x.png");
+            }
+        }
+
         input {
             background-color: transparent !important;
             border: 1px solid #E5E5E5 !important;
@@ -77,16 +96,29 @@
             border-radius: 0px !important;
             font-size: 14px !important;
         }
+
         input:focus {
             border-color: #0F0F0F !important;
             box-shadow: none !important;
             outline: none !important;
         }
-        .iti__selected-flag { background-color: transparent !important; }
-        
-        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .iti__selected-flag {
+            background-color: transparent !important;
+        }
+
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
         .gallery-card {
             background-color: #F9F9F9;
@@ -100,59 +132,75 @@
         #sticky-cta {
             transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
         }
+
         .cta-hidden {
             transform: translateY(100%);
             opacity: 0;
             pointer-events: none;
         }
+
         .cta-visible {
             transform: translateY(0);
             opacity: 1;
             pointer-events: auto;
         }
-        
+
         /* Тінь для читабельності тексту поверх фото */
         .text-glow {
             text-shadow: 0 2px 10px rgba(255, 255, 255, 1);
         }
     </style>
 </head>
+
 <body class="antialiased text-sm md:text-base pb-24">
 
     <!-- HERO SECTION -->
-    <section id="hero-section" class="relative min-h-[100dvh] flex flex-col justify-end md:justify-center pb-12 md:pb-8 pt-[15vh] md:pt-0 overflow-hidden bg-mono-bg">
-        
+    <section id="hero-section"
+        class="relative min-h-[100dvh] flex flex-col justify-end md:justify-center pb-12 md:pb-8 pt-[15vh] md:pt-0 overflow-hidden bg-mono-bg">
+
         <!-- Фонове зображення -->
         <div class="absolute inset-0 z-0 overflow-hidden bg-[#F9F9F9]">
-            <img src="IMG_2516.jpg" 
-                 alt="Victoria Meshcheriakova" 
-                 class="w-full h-full object-cover object-center opacity-95">
-            
+            <img src="IMG_2516.jpg" alt="Victoria Meshcheriakova"
+                class="w-full h-full object-cover object-center opacity-95">
+
             <!-- Заблюрена тінь ПІДНЯТА ВИЩЕ (top-[52%]), але не доходить до самого краю (залишає обличчя відкритим) -->
-            <div class="absolute top-[52%] md:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[160%] md:w-[80%] h-[80%] md:h-[85%] bg-[#F9F9F9]/80 blur-[45px] rounded-full z-10 pointer-events-none"></div>
-            <div class="absolute top-[52%] md:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[130%] md:w-[60%] h-[68%] md:h-[65%] bg-[#F9F9F9]/60 backdrop-blur-md blur-[15px] rounded-full z-10 pointer-events-none"></div>
-            
+            <div
+                class="absolute top-[52%] md:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[160%] md:w-[80%] h-[80%] md:h-[85%] bg-[#F9F9F9]/80 blur-[45px] rounded-full z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute top-[52%] md:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[130%] md:w-[60%] h-[68%] md:h-[65%] bg-[#F9F9F9]/60 backdrop-blur-md blur-[15px] rounded-full z-10 pointer-events-none">
+            </div>
+
             <!-- Легкий градієнт зверху -->
-            <div class="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#F9F9F9]/60 to-transparent z-10 pointer-events-none"></div>
+            <div
+                class="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#F9F9F9]/60 to-transparent z-10 pointer-events-none">
+            </div>
             <!-- Плавний перехід внизу в наступний блок -->
-            <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F9F9F9] to-transparent z-10 pointer-events-none"></div>
+            <div
+                class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F9F9F9] to-transparent z-10 pointer-events-none">
+            </div>
         </div>
 
         <!-- Контейнер контенту -->
-        <div class="container mx-auto px-4 relative z-20 w-full max-w-lg md:max-w-3xl flex flex-col items-center text-center md:mt-24">
-            
+        <div
+            class="container mx-auto px-4 relative z-20 w-full max-w-lg md:max-w-3xl flex flex-col items-center text-center md:mt-24">
+
             <!-- Бейдж -->
             <div class="inline-block border-b border-black pb-1 mb-4">
-                <p class="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-black text-glow">Персональний розбір</p>
+                <p class="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-black text-glow">
+                    Персональний розбір</p>
             </div>
 
             <!-- Головний Оффер -->
-            <h1 class="font-serif text-[26px] xs:text-[28px] md:text-3xl lg:text-4xl font-bold leading-[1.25] text-black mb-4 tracking-tight relative text-glow">
-                Отримай готову схему роботи з контентом і візуалом <span class="italic font-normal text-gray-700">під твою нішу</span>, яка зробить ведення профілю простішим
+            <h1
+                class="font-serif text-[26px] xs:text-[28px] md:text-3xl lg:text-4xl font-bold leading-[1.25] text-black mb-4 tracking-tight relative text-glow">
+                Отримай готову схему роботи з контентом і візуалом <span class="italic font-normal text-gray-700">під
+                    твою нішу</span>, яка зробить ведення профілю простішим
             </h1>
 
             <!-- Підзаголовок -->
-            <div class="w-[95%] max-w-[400px] border-l-2 border-black pl-4 mb-5 mx-auto bg-white/50 backdrop-blur-sm py-2.5 pr-2 rounded-r-lg shadow-sm">
+            <div
+                class="w-[95%] max-w-[400px] border-l-2 border-black pl-4 mb-5 mx-auto bg-white/50 backdrop-blur-sm py-2.5 pr-2 rounded-r-lg shadow-sm">
                 <p class="font-sans text-[13px] md:text-sm font-bold text-gray-900 leading-snug text-left">
                     і приводитиме клієнтів без хаосу, щоденних зйомок та втрати часу.
                 </p>
@@ -160,9 +208,10 @@
 
             <!-- Ціна та Таймер -->
             <div class="w-full max-w-[280px] mx-auto flex flex-col gap-2 mb-6">
-                
+
                 <!-- Блок Ціни -->
-                <div class="bg-white/90 backdrop-blur-md rounded-none py-3.5 px-6 text-center shadow-sm relative overflow-hidden border border-gray-200">
+                <div
+                    class="bg-white/90 backdrop-blur-md rounded-none py-3.5 px-6 text-center shadow-sm relative overflow-hidden border border-gray-200">
                     <div id="ui-price-old" class="text-mono-grey line-through font-medium text-xs mb-0.5">
                         1790 грн
                     </div>
@@ -173,8 +222,9 @@
 
                 <!-- Блок Таймера -->
                 <div class="border border-gray-300 rounded-none py-2 px-4 text-center bg-white/70 backdrop-blur-md">
-                    <p class="text-black text-[10px] font-bold uppercase tracking-widest mb-0 inline-flex items-center gap-2">
-                        до збільшення ціни: 
+                    <p
+                        class="text-black text-[10px] font-bold uppercase tracking-widest mb-0 inline-flex items-center gap-2">
+                        до збільшення ціни:
                         <span id="hero-timer" class="text-black text-[15px] font-serif font-bold">10:00</span>
                     </p>
                 </div>
@@ -183,14 +233,17 @@
 
             <!-- Кнопка -->
             <div class="w-full max-w-[280px] mx-auto">
-                 <button onclick="openModal()" class="w-full bg-black text-white px-8 py-3.5 font-bold uppercase tracking-[0.15em] text-[10px] md:text-xs hover:bg-gray-800 transition-colors shadow-xl flex items-center justify-center gap-3">
+                <button onclick="openModal()"
+                    class="w-full bg-black text-white px-8 py-3.5 font-bold uppercase tracking-[0.15em] text-[10px] md:text-xs hover:bg-gray-800 transition-colors shadow-xl flex items-center justify-center gap-3">
                     <span>Хочу розбір</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-2.5 h-2.5">
-                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd"
+                            d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                            clip-rule="evenodd" />
                     </svg>
                 </button>
             </div>
-            
+
         </div>
     </section>
 
@@ -198,47 +251,59 @@
     <section class="py-24 px-6 bg-white border-b border-gray-100">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-3">Ось як змінюється твій візуал і контент <br><span class="italic font-normal text-mono-grey">після розбору</span></h2>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-3">Ось як змінюється твій візуал і контент
+                    <br><span class="italic font-normal text-mono-grey">після розбору</span>
+                </h2>
                 <div class="w-16 h-px bg-black mx-auto mt-6"></div>
             </div>
 
             <!-- Контейнер слайдера з кнопками -->
             <div class="relative group/slider">
-                <button onclick="scrollContainer('storytelling-container', -1)" class="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 text-black shadow-sm hover:border-black transition-all">
+                <button onclick="scrollContainer('storytelling-container', -1)"
+                    class="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 text-black shadow-sm hover:border-black transition-all">
                     <i data-lucide="chevron-left" class="w-5 h-5"></i>
                 </button>
 
                 <!-- Слайдер -->
                 <div id="storytelling-container" class="flex overflow-x-auto gap-4 pb-8 scrollbar-hide px-4 md:px-0">
-                    
-                    <div class="shrink-0 w-[80vw] md:w-[320px] aspect-square gallery-card border border-gray-100 transition-all group cursor-pointer" onclick="openImageModal(this)">
+
+                    <div class="shrink-0 w-[80vw] md:w-[320px] aspect-square gallery-card border border-gray-100 transition-all group cursor-pointer"
+                        onclick="openImageModal(this)">
                         <img src="bo1.jpg" alt="Результат 1" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                        <div
+                            class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                             <i data-lucide="zoom-in" class="text-black w-8 h-8 opacity-80"></i>
                         </div>
                     </div>
-                    <div class="shrink-0 w-[80vw] md:w-[320px] aspect-square gallery-card border border-gray-100 transition-all group cursor-pointer" onclick="openImageModal(this)">
+                    <div class="shrink-0 w-[80vw] md:w-[320px] aspect-square gallery-card border border-gray-100 transition-all group cursor-pointer"
+                        onclick="openImageModal(this)">
                         <img src="bo2.jpg" alt="Результат 2" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                        <div
+                            class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                             <i data-lucide="zoom-in" class="text-black w-8 h-8 opacity-80"></i>
                         </div>
                     </div>
-                    <div class="shrink-0 w-[80vw] md:w-[320px] aspect-square gallery-card border border-gray-100 transition-all group cursor-pointer" onclick="openImageModal(this)">
+                    <div class="shrink-0 w-[80vw] md:w-[320px] aspect-square gallery-card border border-gray-100 transition-all group cursor-pointer"
+                        onclick="openImageModal(this)">
                         <img src="bo3.jpg" alt="Результат 3" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                        <div
+                            class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                             <i data-lucide="zoom-in" class="text-black w-8 h-8 opacity-80"></i>
                         </div>
                     </div>
-                    <div class="shrink-0 w-[80vw] md:w-[320px] aspect-square gallery-card border border-gray-100 transition-all group cursor-pointer" onclick="openImageModal(this)">
+                    <div class="shrink-0 w-[80vw] md:w-[320px] aspect-square gallery-card border border-gray-100 transition-all group cursor-pointer"
+                        onclick="openImageModal(this)">
                         <img src="bo4.jpg" alt="Результат 4" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                        <div
+                            class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                             <i data-lucide="zoom-in" class="text-black w-8 h-8 opacity-80"></i>
                         </div>
                     </div>
 
                 </div>
-                
-                <button onclick="scrollContainer('storytelling-container', 1)" class="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 text-black shadow-sm hover:border-black transition-all">
+
+                <button onclick="scrollContainer('storytelling-container', 1)"
+                    class="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 text-black shadow-sm hover:border-black transition-all">
                     <i data-lucide="chevron-right" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -248,7 +313,8 @@
             </div>
 
             <div class="w-full max-w-xs mx-auto mt-10 text-center">
-                 <button onclick="openModal()" class="inline-block bg-transparent border border-black text-black px-10 py-3 hover:bg-black hover:text-white transition-all duration-300 uppercase tracking-widest text-[10px] font-bold">
+                <button onclick="openModal()"
+                    class="inline-block bg-transparent border border-black text-black px-10 py-3 hover:bg-black hover:text-white transition-all duration-300 uppercase tracking-widest text-[10px] font-bold">
                     Хочу розбір
                 </button>
             </div>
@@ -259,7 +325,8 @@
     <section class="py-24 px-6 bg-mono-bg relative">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-3">Чому твій контент і візуал <br><span class="italic font-normal text-mono-grey">не працює і не продає?</span></h2>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-3">Чому твій контент і візуал <br><span
+                        class="italic font-normal text-mono-grey">не працює і не продає?</span></h2>
                 <div class="w-16 h-px bg-black mx-auto mt-6"></div>
                 <p class="text-xs md:text-sm text-gray-500 uppercase tracking-[0.2em] font-bold mt-6">
                     90% ЕКСПЕРТІВ РОБЛЯТЬ ОДНІ Й ТІ САМІ ПОМИЛКИ
@@ -268,30 +335,40 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <!-- Card 1 -->
-                <div class="flex flex-col p-6 border-l border-gray-200 hover:border-black transition-colors duration-500 group bg-white shadow-sm">
-                    <i data-lucide="fingerprint" class="w-8 h-8 text-gray-300 group-hover:text-black transition-colors mb-4 stroke-[1.5]"></i>
+                <div
+                    class="flex flex-col p-6 border-l border-gray-200 hover:border-black transition-colors duration-500 group bg-white shadow-sm">
+                    <i data-lucide="fingerprint"
+                        class="w-8 h-8 text-gray-300 group-hover:text-black transition-colors mb-4 stroke-[1.5]"></i>
                     <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                        Немає <span class="text-black font-bold">відчуття "це я"</span>: виглядаєш "як усі", що не дозволяє виділитися і запам'ятатися.
+                        Немає <span class="text-black font-bold">відчуття "це я"</span>: виглядаєш "як усі", що не
+                        дозволяє виділитися і запам'ятатися.
                     </p>
                 </div>
                 <!-- Card 2 -->
-                <div class="flex flex-col p-6 border-l border-gray-200 hover:border-black transition-colors duration-500 group bg-white shadow-sm">
-                    <i data-lucide="clock" class="w-8 h-8 text-gray-300 group-hover:text-black transition-colors mb-4 stroke-[1.5]"></i>
+                <div
+                    class="flex flex-col p-6 border-l border-gray-200 hover:border-black transition-colors duration-500 group bg-white shadow-sm">
+                    <i data-lucide="clock"
+                        class="w-8 h-8 text-gray-300 group-hover:text-black transition-colors mb-4 stroke-[1.5]"></i>
                     <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                        Витрачаєш години на <span class="text-black font-bold">"ідеальний пост"</span> — і все одно незадоволена. Або публікуєш хаотично, або не публікуєш взагалі.
+                        Витрачаєш години на <span class="text-black font-bold">"ідеальний пост"</span> — і все одно
+                        незадоволена. Або публікуєш хаотично, або не публікуєш взагалі.
                     </p>
                 </div>
                 <!-- Card 3 -->
-                <div class="flex flex-col p-6 border-l border-gray-200 hover:border-black transition-colors duration-500 group bg-white shadow-sm">
-                    <i data-lucide="copy" class="w-8 h-8 text-gray-300 group-hover:text-black transition-colors mb-4 stroke-[1.5]"></i>
+                <div
+                    class="flex flex-col p-6 border-l border-gray-200 hover:border-black transition-colors duration-500 group bg-white shadow-sm">
+                    <i data-lucide="copy"
+                        class="w-8 h-8 text-gray-300 group-hover:text-black transition-colors mb-4 stroke-[1.5]"></i>
                     <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                        Працюєш то по шаблонах, то по трендам — <span class="text-black font-bold">не розумієш як створювати контент</span>, який продає.
+                        Працюєш то по шаблонах, то по трендам — <span class="text-black font-bold">не розумієш як
+                            створювати контент</span>, який продає.
                     </p>
                 </div>
             </div>
 
             <div class="mt-16 text-center">
-                 <button onclick="openModal()" class="inline-block bg-black text-white px-10 py-4 hover:bg-gray-800 transition-all duration-300 uppercase tracking-[0.15em] text-[10px] font-bold shadow-xl">
+                <button onclick="openModal()"
+                    class="inline-block bg-black text-white px-10 py-4 hover:bg-gray-800 transition-all duration-300 uppercase tracking-[0.15em] text-[10px] font-bold shadow-xl">
                     Хочу розбір
                 </button>
             </div>
@@ -302,32 +379,42 @@
     <section class="py-24 px-6 bg-white border-t border-gray-100">
         <div class="max-w-3xl mx-auto">
             <h2 class="font-serif text-3xl md:text-4xl text-center mb-6 font-bold">
-                Інші експерти <span class="italic font-normal text-mono-grey">приховують це</span>, <br>бо заробляють на твоєму хаосі
+                Інші експерти <span class="italic font-normal text-mono-grey">приховують це</span>, <br>бо заробляють на
+                твоєму хаосі
             </h2>
-            
+
             <p class="text-base md:text-lg text-black text-center mb-12 font-bold uppercase tracking-widest">
                 На розборі ти отримаєш:
             </p>
-            
+
             <div class="space-y-4">
-                <div class="group bg-white p-6 md:p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-black transition-all duration-300 flex flex-col md:flex-row md:items-center gap-4">
-                    <span class="font-serif text-4xl italic text-gray-300 group-hover:text-black transition-colors shrink-0">01.</span>
-                    <p class="font-bold text-base md:text-lg text-black leading-snug">Повний "апгрейд" твого блогу - розбір по деталям що змінити</p>
+                <div
+                    class="group bg-white p-6 md:p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-black transition-all duration-300 flex flex-col md:flex-row md:items-center gap-4">
+                    <span
+                        class="font-serif text-4xl italic text-gray-300 group-hover:text-black transition-colors shrink-0">01.</span>
+                    <p class="font-bold text-base md:text-lg text-black leading-snug">Повний "апгрейд" твого блогу -
+                        розбір по деталям що змінити</p>
                 </div>
-                
-                <div class="group bg-white p-6 md:p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-black transition-all duration-300 flex flex-col md:flex-row md:items-center gap-4">
-                    <span class="font-serif text-4xl italic text-gray-300 group-hover:text-black transition-colors shrink-0">02.</span>
-                    <p class="font-bold text-base md:text-lg text-black leading-snug">Персональний план системи контенту та візуалу</p>
+
+                <div
+                    class="group bg-white p-6 md:p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-black transition-all duration-300 flex flex-col md:flex-row md:items-center gap-4">
+                    <span
+                        class="font-serif text-4xl italic text-gray-300 group-hover:text-black transition-colors shrink-0">02.</span>
+                    <p class="font-bold text-base md:text-lg text-black leading-snug">Персональний план системи контенту
+                        та візуалу</p>
                 </div>
-                
-                <div class="group bg-white p-6 md:p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-black transition-all duration-300 flex flex-col md:flex-row md:items-center gap-4">
-                    <span class="font-serif text-4xl italic text-gray-300 group-hover:text-black transition-colors shrink-0">03.</span>
+
+                <div
+                    class="group bg-white p-6 md:p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-black transition-all duration-300 flex flex-col md:flex-row md:items-center gap-4">
+                    <span
+                        class="font-serif text-4xl italic text-gray-300 group-hover:text-black transition-colors shrink-0">03.</span>
                     <p class="font-bold text-base md:text-lg text-black leading-snug">Матеріали і програми для блогу</p>
                 </div>
             </div>
 
             <div class="mt-12 text-center">
-                 <button onclick="openModal()" class="inline-block bg-transparent border border-black text-black px-10 py-3 hover:bg-black hover:text-white transition-all duration-300 uppercase tracking-widest text-[10px] font-bold">
+                <button onclick="openModal()"
+                    class="inline-block bg-transparent border border-black text-black px-10 py-3 hover:bg-black hover:text-white transition-all duration-300 uppercase tracking-widest text-[10px] font-bold">
                     Хочу розбір
                 </button>
             </div>
@@ -338,15 +425,18 @@
     <section class="py-24 px-6 bg-mono-bg relative border-t border-gray-200">
         <div class="max-w-2xl mx-auto">
             <div class="mb-12 text-center">
-                <span class="text-black text-[10px] uppercase tracking-[0.25em] font-bold block mb-4 border-b border-black pb-1 inline-block">Контент стає легким, коли є система</span>
-                <h2 class="font-serif text-4xl md:text-5xl font-bold text-black mb-2">Привіт, я <span class="italic font-normal text-mono-grey">Віка</span></h2>
-                <p class="text-gray-500 text-xs md:text-sm uppercase font-bold tracking-widest mt-2">— ЕКСПЕРТ З КОНТЕНТУ ТА ВІЗУАЛУ</p>
+                <span
+                    class="text-black text-[10px] uppercase tracking-[0.25em] font-bold block mb-4 border-b border-black pb-1 inline-block">Контент
+                    стає легким, коли є система</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-black mb-2">Привіт, я <span
+                        class="italic font-normal text-mono-grey">Віка</span></h2>
+                <p class="text-gray-500 text-xs md:text-sm uppercase font-bold tracking-widest mt-2">— ЕКСПЕРТ З
+                    КОНТЕНТУ ТА ВІЗУАЛУ</p>
             </div>
 
-            <div class="w-64 h-80 mx-auto overflow-hidden mb-12 relative shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
-                 <img src="vik.jpg" 
-                     alt="Victoria Meshcheriakova" 
-                     class="w-full h-full object-cover">
+            <div
+                class="w-64 h-80 mx-auto overflow-hidden mb-12 relative shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
+                <img src="vik.jpg" alt="Victoria Meshcheriakova" class="w-full h-full object-cover">
             </div>
 
             <div class="space-y-6 text-gray-800 w-full">
@@ -357,20 +447,28 @@
                 </div>
 
                 <p class="leading-relaxed font-light text-base md:text-lg">
-                    Я працювала з десятками блогів експертів та брендів. Мій підхід — фундамент блогу, сенси які продають, візуал який говорить без слів. Я не вірю в "немає натхнення", я вірю в правильну структуру.
+                    Я працювала з десятками блогів експертів та брендів. Мій підхід — фундамент блогу, сенси які
+                    продають, візуал який говорить без слів. Я не вірю в "немає натхнення", я вірю в правильну
+                    структуру.
                 </p>
                 <p class="leading-relaxed font-light text-base md:text-lg">
-                    Багато експертів приходять після років хаосу: витрачають години на контент — результату немає. Публікують хаотично, без логіки. Роблять "ідеальний пост" пів дня — і не публікують взагалі. Контент = постійний стрес.
+                    Багато експертів приходять після років хаосу: витрачають години на контент — результату немає.
+                    Публікують хаотично, без логіки. Роблять "ідеальний пост" пів дня — і не публікують взагалі. Контент
+                    = постійний стрес.
                 </p>
-                
+
                 <div class="mt-8 pt-8 border-t border-gray-200">
-                    <strong class="text-black block mb-3 uppercase text-sm tracking-widest font-bold">Я НЕ ДАЮ ЗАГАЛЬНИХ ПОРАД</strong>
-                    <p class="text-base md:text-lg text-gray-700 font-light leading-relaxed">На розборі я аналізую ТВОЮ ситуацію: чому контент не чіпляє, де губляться сенси, що у візуалі не працює — щоб ти точно знала як перетворити хаос на контент, який приводить клієнтів.</p>
+                    <strong class="text-black block mb-3 uppercase text-sm tracking-widest font-bold">Я НЕ ДАЮ ЗАГАЛЬНИХ
+                        ПОРАД</strong>
+                    <p class="text-base md:text-lg text-gray-700 font-light leading-relaxed">На розборі я аналізую ТВОЮ
+                        ситуацію: чому контент не чіпляє, де губляться сенси, що у візуалі не працює — щоб ти точно
+                        знала як перетворити хаос на контент, який приводить клієнтів.</p>
                 </div>
             </div>
 
             <div class="mt-16 text-center">
-                 <button onclick="openModal()" class="inline-block bg-black text-white px-10 py-4 hover:bg-gray-800 transition-all duration-300 uppercase tracking-[0.15em] text-[10px] font-bold shadow-xl">
+                <button onclick="openModal()"
+                    class="inline-block bg-black text-white px-10 py-4 hover:bg-gray-800 transition-all duration-300 uppercase tracking-[0.15em] text-[10px] font-bold shadow-xl">
                     Хочу розбір
                 </button>
             </div>
@@ -380,31 +478,39 @@
     <!-- SYSTEM RESULTS (REVIEWS) -->
     <section class="py-24 bg-white overflow-hidden">
         <div class="px-6 mb-12 text-center">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold">Що кажуть <span class="italic font-normal text-mono-grey">дівчата</span></h2>
-            <p class="text-[10px] text-gray-400 mt-3 font-light uppercase tracking-widest">Натисніть на фото, щоб відкрити</p>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold">Що кажуть <span
+                    class="italic font-normal text-mono-grey">дівчата</span></h2>
+            <p class="text-[10px] text-gray-400 mt-3 font-light uppercase tracking-widest">Натисніть на фото, щоб
+                відкрити</p>
         </div>
-        
+
         <div class="relative max-w-6xl mx-auto group/slider">
-            <button onclick="scrollContainer('reviews-container', -1)" class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 text-black shadow-sm hover:border-black transition-all">
+            <button onclick="scrollContainer('reviews-container', -1)"
+                class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 text-black shadow-sm hover:border-black transition-all">
                 <i data-lucide="chevron-left" class="w-5 h-5"></i>
             </button>
 
             <div id="reviews-container" class="flex overflow-x-auto gap-4 pb-8 no-scrollbar px-6 md:px-0 w-full">
-                <div class="shrink-0 w-[280px] md:w-[320px] aspect-[3/4] bg-gray-50 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden transition-transform hover:scale-[1.01]" onclick="openImageModal(this)">
+                <div class="shrink-0 w-[280px] md:w-[320px] aspect-[3/4] bg-gray-50 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden transition-transform hover:scale-[1.01]"
+                    onclick="openImageModal(this)">
                     <img src="05.jpg" class="w-full h-full object-cover">
                 </div>
-                <div class="shrink-0 w-[280px] md:w-[320px] aspect-[3/4] bg-gray-50 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden transition-transform hover:scale-[1.01]" onclick="openImageModal(this)">
+                <div class="shrink-0 w-[280px] md:w-[320px] aspect-[3/4] bg-gray-50 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden transition-transform hover:scale-[1.01]"
+                    onclick="openImageModal(this)">
                     <img src="02.jpg" alt="Review 2" class="w-full h-full object-cover">
                 </div>
-                <div class="shrink-0 w-[280px] md:w-[320px] aspect-[3/4] bg-gray-50 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden transition-transform hover:scale-[1.01]" onclick="openImageModal(this)">
+                <div class="shrink-0 w-[280px] md:w-[320px] aspect-[3/4] bg-gray-50 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden transition-transform hover:scale-[1.01]"
+                    onclick="openImageModal(this)">
                     <img src="03.jpg" alt="Review 3" class="w-full h-full object-cover">
                 </div>
-                <div class="shrink-0 w-[280px] md:w-[320px] aspect-[3/4] bg-gray-50 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden transition-transform hover:scale-[1.01]" onclick="openImageModal(this)">
+                <div class="shrink-0 w-[280px] md:w-[320px] aspect-[3/4] bg-gray-50 border border-gray-100 flex items-center justify-center cursor-pointer overflow-hidden transition-transform hover:scale-[1.01]"
+                    onclick="openImageModal(this)">
                     <img src="04.jpg" alt="Review 4" class="w-full h-full object-cover">
                 </div>
             </div>
-            
-            <button onclick="scrollContainer('reviews-container', 1)" class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 text-black shadow-sm hover:border-black transition-all">
+
+            <button onclick="scrollContainer('reviews-container', 1)"
+                class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white border border-gray-200 text-black shadow-sm hover:border-black transition-all">
                 <i data-lucide="chevron-right" class="w-5 h-5"></i>
             </button>
         </div>
@@ -415,7 +521,7 @@
     <section class="py-24 px-6 bg-mono-bg text-center pb-32">
         <div class="max-w-xl mx-auto">
             <div class="bg-white border border-gray-200 p-10 shadow-xl relative overflow-hidden">
-                
+
                 <div class="relative z-10 flex flex-col items-center">
                     <div class="text-black mb-6">
                         <i data-lucide="shield-check" class="w-10 h-10 stroke-[1.5]"></i>
@@ -425,12 +531,14 @@
                         Гарантія <br>
                         <span class="italic font-normal text-mono-grey lowercase text-2xl">повернення</span>
                     </h3>
-                    
+
                     <p class="text-gray-600 text-sm md:text-base mb-10 font-light leading-relaxed">
-                        Якщо персональна система не принесе користі — я поверну тобі усі <span id="guarantee-price" class="font-bold text-black">390</span> грн.
+                        Якщо персональна система не принесе користі — я поверну тобі усі <span id="guarantee-price"
+                            class="font-bold text-black">390</span> грн.
                     </p>
 
-                    <button onclick="openModal()" class="inline-block bg-black text-white px-10 py-4 hover:bg-gray-800 transition-all duration-300 uppercase tracking-[0.15em] text-[10px] font-bold shadow-lg w-full md:w-auto">
+                    <button onclick="openModal()"
+                        class="inline-block bg-black text-white px-10 py-4 hover:bg-gray-800 transition-all duration-300 uppercase tracking-[0.15em] text-[10px] font-bold shadow-lg w-full md:w-auto">
                         Хочу розбір
                     </button>
                 </div>
@@ -439,12 +547,16 @@
     </section>
 
     <!-- FLOATING CTA -->
-    <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-40 px-6 pb-safe bg-gradient-to-t from-white via-white/95 to-transparent pt-6 cta-hidden">
+    <div id="sticky-cta"
+        class="fixed bottom-0 left-0 w-full z-40 px-6 pb-safe bg-gradient-to-t from-white via-white/95 to-transparent pt-6 cta-hidden">
         <div class="max-w-md mx-auto mb-2">
-            <button onclick="openModal()" class="w-full bg-black text-white px-8 py-4 font-bold uppercase tracking-[0.15em] text-[10px] md:text-xs hover:bg-gray-800 transition-colors shadow-2xl flex items-center justify-center gap-3">
+            <button onclick="openModal()"
+                class="w-full bg-black text-white px-8 py-4 font-bold uppercase tracking-[0.15em] text-[10px] md:text-xs hover:bg-gray-800 transition-colors shadow-2xl flex items-center justify-center gap-3">
                 <span>Хочу розбір</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-2.5 h-2.5">
-                    <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                        clip-rule="evenodd" />
                 </svg>
             </button>
         </div>
@@ -460,23 +572,31 @@
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-sm px-4">
             <div class="bg-white p-8 shadow-2xl relative">
-                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                <button onclick="closeModal()"
+                    class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                 </button>
                 <div class="text-center mb-8">
                     <p class="text-[9px] uppercase tracking-[0.3em] text-gray-400 mb-2">Останній крок</p>
                     <h3 class="font-serif text-3xl font-bold text-black leading-tight">Залиште дані</h3>
                 </div>
-                
+
                 <form id="leadForm" class="space-y-5">
                     <div>
-                        <input type="text" id="name" name="name" required placeholder="Ваше ім'я" class="w-full bg-transparent border border-gray-300 py-3 px-4 text-sm focus:border-black focus:outline-none transition-colors">
+                        <input type="text" id="name" name="name" required placeholder="Ваше ім'я"
+                            class="w-full bg-transparent border border-gray-300 py-3 px-4 text-sm focus:border-black focus:outline-none transition-colors">
                     </div>
                     <div>
-                        <input type="tel" id="phone" name="phone" required class="w-full bg-transparent border border-gray-300 py-3 px-4 text-sm focus:border-black focus:outline-none transition-colors">
-                        <p id="phone-error" class="text-red-500 text-[10px] mt-1 hidden">Перевірте правильність номеру</p>
+                        <input type="tel" id="phone" name="phone" required
+                            class="w-full bg-transparent border border-gray-300 py-3 px-4 text-sm focus:border-black focus:outline-none transition-colors">
+                        <p id="phone-error" class="text-red-500 text-[10px] mt-1 hidden">Перевірте правильність номеру
+                        </p>
                     </div>
-                    <button type="submit" id="submitBtn" class="w-full bg-black text-white py-4 text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-gray-800 transition-colors mt-4">
+                    <button type="submit" id="submitBtn"
+                        class="w-full bg-black text-white py-4 text-[10px] font-bold uppercase tracking-[0.15em] hover:bg-gray-800 transition-colors mt-4">
                         Перейти до оплати
                     </button>
                 </form>
@@ -486,14 +606,19 @@
     </div>
 
     <!-- IMAGE LIGHTBOX -->
-    <div id="image-modal" class="fixed inset-0 z-[70] hidden flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm transition-opacity" onclick="closeImageModal()">
+    <div id="image-modal"
+        class="fixed inset-0 z-[70] hidden flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm transition-opacity"
+        onclick="closeImageModal()">
         <button class="absolute top-5 right-5 text-white/70 hover:text-white z-50 p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
         </button>
         <div class="w-full h-full flex items-center justify-center overflow-auto">
-             <img id="lightbox-image" src="" alt="Full Screen" 
-                  class="max-w-[95vw] max-h-[90vh] object-contain shadow-2xl rounded-sm transition-transform"
-                  onclick="event.stopPropagation()">
+            <img id="lightbox-image" src="" alt="Full Screen"
+                class="max-w-[95vw] max-h-[90vh] object-contain shadow-2xl rounded-sm transition-transform"
+                onclick="event.stopPropagation()">
         </div>
     </div>
 
@@ -504,25 +629,25 @@
     <script>
         lucide.createIcons();
 
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5Gz2aD1fuz0T4fACh7w3YhJdqRvrysxeLRKJB2rRGzFT9QEQa_sA3dNCS29ccv_ObVg/exec'; 
-        
-        const WFP_SECRET_KEY = 'd9813f561284abe48c68b778f8fc4e72b8b3740e'; 
-        const WFP_MERCHANT_ACCOUNT = 'freelance_user_674ece748edc5'; 
-        
-        const WFP_MERCHANT_DOMAIN = 'victoriameshcheriakova.vercel.app'; 
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwSaSkvHXzOlz-7N1eQQWW8Rt7k-dWSNoZrTmcZ0TMOUg7n6VGPDTyK66ed2eD1Uk6f/exec';
+
+        const WFP_SECRET_KEY = '17addcd05644675231e2fe92b9328a7641dd7553';
+        const WFP_MERCHANT_ACCOUNT = 'freelance_user_665d96f1b94f6';
+
+        const WFP_MERCHANT_DOMAIN = 'victoriameshcheriakova.vercel.app';
 
         const PRICING = {
-            '882': { current: 290, old: 1290 }, 
-            'default': { current: 390, old: 1790 }, 
-            '551': { current: 590, old: 2190 },
-            'test': { current: 1, old: 100 }
+            '290': { current: 290, old: 1290 },
+            'default': { current: 390, old: 1790 },
+            '590': { current: 590, old: 2190 },
+            'test_8f7b2c9a': { current: 1, old: 100 }
         };
 
         let currentPriceObj = PRICING['default'];
 
         function initPrice() {
             const urlParams = new URLSearchParams(window.location.search);
-            const uid = urlParams.get('uid'); 
+            const uid = urlParams.get('uid');
 
             if (uid && PRICING[uid]) {
                 currentPriceObj = PRICING[uid];
@@ -547,7 +672,7 @@
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
                 displays.forEach(display => {
-                    if(display) display.textContent = minutes + ":" + seconds;
+                    if (display) display.textContent = minutes + ":" + seconds;
                 });
                 if (--timer < 0) timer = 0;
             }, 1000);
@@ -558,7 +683,7 @@
             if (!container) return;
             const content = container.innerHTML;
             container.innerHTML = content + content + content;
-            
+
             const centerPosition = () => {
                 container.scrollLeft = container.scrollWidth / 3;
             };
@@ -566,9 +691,9 @@
             const handleScroll = () => {
                 const totalWidth = container.scrollWidth;
                 const oneThird = totalWidth / 3;
-                if (container.scrollLeft >= oneThird * 2) { 
+                if (container.scrollLeft >= oneThird * 2) {
                     container.scrollLeft -= oneThird;
-                } else if (container.scrollLeft <= 50) { 
+                } else if (container.scrollLeft <= 50) {
                     container.scrollLeft += oneThird;
                 }
             };
@@ -577,9 +702,9 @@
         }
 
         function initStickyObserver() {
-            const header = document.getElementById('hero-section'); 
+            const header = document.getElementById('hero-section');
             const stickyCta = document.getElementById('sticky-cta');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -590,25 +715,25 @@
                         stickyCta.classList.add('cta-visible');
                     }
                 });
-            }, { threshold: 0.2 }); 
+            }, { threshold: 0.2 });
 
-            if(header) observer.observe(header);
+            if (header) observer.observe(header);
         }
 
         window.onload = function () {
-            initPrice(); 
+            initPrice();
             const tenMinutes = 60 * 10;
             const displays = [document.querySelector('#hero-timer')];
             startTimer(tenMinutes, displays);
             setupInfiniteScroll('storytelling-container');
             setupInfiniteScroll('reviews-container');
-            initStickyObserver(); 
+            initStickyObserver();
         };
 
         const input = document.querySelector("#phone");
         const iti = window.intlTelInput(input, {
             initialCountry: "auto",
-            geoIpLookup: function(success, failure) {
+            geoIpLookup: function (success, failure) {
                 fetch("https://get.geojs.io/v1/ip/country.json")
                     .then(res => res.json())
                     .then(data => success(data.country))
@@ -650,7 +775,7 @@
             document.body.style.overflow = 'auto';
         }
 
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === "Escape") {
                 closeImageModal();
                 closeModal();
@@ -659,7 +784,7 @@
 
         function scrollContainer(id, direction) {
             const container = document.getElementById(id);
-            const scrollAmount = 340; 
+            const scrollAmount = 340;
             container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
         }
 
@@ -671,18 +796,18 @@
             const safeAmount = String(currentPriceObj.current);
             const urlParams = new URLSearchParams(window.location.search);
             const currentUid = urlParams.get('uid') || 'default';
-            
+
             localStorage.setItem('wfp_uid', currentUid);
             localStorage.setItem('wfp_amount', safeAmount);
 
-            const DOMAIN = 'https://victoriameshcheriakova.vercel.app'; 
+            const DOMAIN = 'https://victoriameshcheriakova.vercel.app';
             const successUrl = DOMAIN + '/success.html';
             const failUrl = DOMAIN + '/failed.html';
-            
+
             const orderDate = Math.floor(Date.now() / 1000);
             const productName = "Персональна Діагностика";
             const productCount = "1";
-            
+
             const stringToSign = [
                 WFP_MERCHANT_ACCOUNT,
                 WFP_MERCHANT_DOMAIN,
@@ -699,32 +824,32 @@
 
             var wayforpay = new Wayforpay();
             wayforpay.run({
-                merchantAccount : WFP_MERCHANT_ACCOUNT,
-                merchantDomainName : WFP_MERCHANT_DOMAIN,
-                authorizationType : "SimpleSignature",
-                merchantSignature : signature, 
-                orderReference : orderData.orderId, 
-                orderDate : orderDate,
-                amount : safeAmount, 
-                currency : "UAH",
-                productName : [productName],
-                productPrice : [safeAmount], 
-                productCount : [productCount],
-                clientFirstName : orderData.name,
+                merchantAccount: WFP_MERCHANT_ACCOUNT,
+                merchantDomainName: WFP_MERCHANT_DOMAIN,
+                authorizationType: "SimpleSignature",
+                merchantSignature: signature,
+                orderReference: orderData.orderId,
+                orderDate: orderDate,
+                amount: safeAmount,
+                currency: "UAH",
+                productName: [productName],
+                productPrice: [safeAmount],
+                productCount: [productCount],
+                clientFirstName: orderData.name,
                 clientPhone: orderData.phone,
                 language: "UA",
                 returnUrl: successUrl,
                 serviceUrl: GOOGLE_SCRIPT_URL
             },
-            function (response) {
-                window.location.href = successUrl + "?orderReference=" + orderData.orderId;
-            },
-            function (response) {
-                window.location.href = failUrl;
-            },
-            function (response) {
-                console.log("Payment pending/error");
-            });
+                function (response) {
+                    window.location.href = successUrl + "?orderReference=" + orderData.orderId;
+                },
+                function (response) {
+                    window.location.href = failUrl;
+                },
+                function (response) {
+                    console.log("Payment pending/error");
+                });
         }
 
         const form = document.getElementById('leadForm');
@@ -742,10 +867,10 @@
             };
         }
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
             errorMsg.classList.add('hidden');
-            
+
             if (!iti.isValidNumber()) {
                 errorMsg.classList.remove('hidden');
                 return;
@@ -755,16 +880,16 @@
             submitBtn.textContent = 'ОБРОБКА...';
 
             const uniqueOrderId = generateOrderId();
-            
+
             const formData = {
-                target_sheet: "Контент Діагностика", 
+                target_sheet: "Ленд 3",
                 date: new Date().toLocaleString("uk-UA"),
-                orderId: uniqueOrderId, 
+                orderId: uniqueOrderId,
                 name: document.getElementById('name').value,
                 phone: iti.getNumber(),
-                amount: currentPriceObj.current, 
-                variant_name: `Price Test: ${currentPriceObj.current} UAH`, 
-                status: "Pending Payment", 
+                amount: currentPriceObj.current,
+                variant_name: `Price Test: ${currentPriceObj.current} UAH`,
+                status: "Новий лід (Не оплачено)",
                 ...getUTM()
             };
 
@@ -775,7 +900,7 @@
                 body: JSON.stringify(formData)
             }).then(() => {
                 localStorage.setItem('purchase_price', currentPriceObj.current);
-                
+
                 fbq('track', 'Lead', {
                     value: parseFloat(currentPriceObj.current),
                     currency: 'UAH',
@@ -797,4 +922,5 @@
         });
     </script>
 </body>
+
 </html>
